@@ -147,13 +147,12 @@ export default function Hero() {
       </div>
       <div className="relative z-[100] w-full flex items-center justify-center px-8" style={{ pointerEvents: 'none' }}>
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-20" style={{ pointerEvents: 'auto' }}>
-          <div className="flex-shrink-0 profile-image-wrapper" style={{ pointerEvents: 'none' }}>
+          <div className="flex-shrink-0 profile-image-wrapper">
             <div className="profile-glow"></div>
             <img
               src="/me.png"
               alt="Spencer Z. Nacario"
-              className="profile-image"
-              style={{ pointerEvents: 'none' }}
+              className="profile-image profile-image-hover"
             />
           </div>
 
