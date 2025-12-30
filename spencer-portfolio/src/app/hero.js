@@ -126,6 +126,34 @@ export default function Hero() {
     };
   }, []);
 
+  // Cursor shine effect
+  useEffect(() => {
+    const nameParts = document.querySelectorAll('.hero-name-shine');
+    
+    const handleMouseMove = (e, element) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      element.style.setProperty('--mouse-x', `${x}px`);
+      element.style.setProperty('--mouse-y', `${y}px`);
+    };
+
+    nameParts.forEach(part => {
+      const mouseMoveHandler = (e) => handleMouseMove(e, part);
+      part.addEventListener('mousemove', mouseMoveHandler);
+      part._mouseMoveHandler = mouseMoveHandler;
+    });
+
+    return () => {
+      nameParts.forEach(part => {
+        if (part._mouseMoveHandler) {
+          part.removeEventListener('mousemove', part._mouseMoveHandler);
+        }
+      });
+    };
+  }, []);
+
   return (
     <section className="hero-section snap-start h-screen flex items-center justify-center relative overflow-hidden bg-[#0a1f1a]">
       <div 
@@ -156,11 +184,11 @@ export default function Hero() {
             />
           </div>
 
-          <div className="text-left hero-content" style={{ pointerEvents: 'none' }}>
+          <div className="text-left hero-content">
             <h1 className="hero-name">
-              <span className="name-part">Spencer Z.</span>
+              <span className="hero-name-shine" style={{ pointerEvents: 'auto' }}>Spencer Z.</span>
               <br />
-              <span className="name-part">Nacario</span>
+              <span className="hero-name-shine" style={{ pointerEvents: 'auto' }}>Nacario</span>
             </h1>
             <p className="hero-role">
               Full-Stack Developer

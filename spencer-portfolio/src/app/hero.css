@@ -92,6 +92,30 @@
   animation: slideInUp 0.8s ease-out;
 }
 
+/* Cursor Shine Effect */
+.hero-name-shine {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  background: radial-gradient(
+    circle 300px at var(--mouse-x) var(--mouse-y),
+    rgb(52, 211, 153),
+    white 35%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-name-shine:not(:hover) {
+  background: white;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+}
+
 @media (min-width: 768px) {
   .hero-name {
     font-size: 5rem;
