@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Hero from './hero';
+import About from './about';
 import ModernNavbar from './navbar';
 
 export default function Home() {
@@ -69,18 +70,9 @@ export default function Home() {
           </div>
 
           {/* About Me Section */}
-          <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
-            <div className="absolute inset-0 bg-gradient-to-tr from-black via-emerald-950 to-black opacity-80"></div>
-            <div className="absolute inset-0">
-              <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-emerald-400/10 rounded-full blur-[80px] animate-pulse"></div>
-            </div>
-            <div className="relative z-10 text-center border-2 border-emerald-500/30 rounded-lg p-12 backdrop-blur-sm shadow-[0_0_50px_rgba(52,211,153,0.3)]">
-              <h2 className="text-5xl font-bold text-emerald-400 drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]">
-                About Me
-              </h2>
-              <p className="text-emerald-300/70 mt-4">Content coming soon...</p>
-            </div>
-          </section>
+          <div className="h-screen">
+            <About />
+          </div>
 
           {/* My Works Section */}
           <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
