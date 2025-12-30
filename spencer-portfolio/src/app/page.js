@@ -31,6 +31,31 @@ export default function Home() {
     <>
       {/* Modern Navbar */}
       <ModernNavbar currentSection={currentSection} scrollToSection={scrollToSection} />
+      
+      {/* Scroll Down Indicator (only shows on hero section) */}
+      {currentSection === 0 && (
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] flex flex-col items-center">
+          {/* Minimal animated arrow */}
+          <div className="animate-[bounce_2s_ease-in-out_infinite]">
+            <svg 
+              className="w-8 h-8 text-emerald-400/60" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                d="M19 9l-7 7-7-7" 
+              />
+            </svg>
+          </div>
+          
+          {/* Subtle glow effect */}
+          <div className="absolute inset-0 bg-emerald-400/10 blur-lg rounded-full"></div>
+        </div>
+      )}
 
       <div className="relative h-screen overflow-hidden">
         {/* Sections Container */}

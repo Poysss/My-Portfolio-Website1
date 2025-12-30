@@ -166,7 +166,7 @@ export default function Hero() {
               Full-Stack Developer
             </p>
             <p className="hero-motto">
-              Let's build together, shall we?
+              Let's grow together, shall we?
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 hero-buttons" style={{ pointerEvents: 'auto' }}>

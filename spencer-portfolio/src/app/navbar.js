@@ -1,10 +1,11 @@
 // src/app/navbar.js
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ModernNavbar({ currentSection, scrollToSection }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
   const navItems = [
     { name: 'Intro', index: 0 },
@@ -13,21 +14,69 @@ export default function ModernNavbar({ currentSection, scrollToSection }) {
     { name: 'Certificates', index: 3 }
   ];
 
+  const toggleLock = () => {
+    setIsLocked(!isLocked);
+    if (!isLocked) {
+      setIsVisible(true);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isLocked) {
+      setIsVisible(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isLocked) {
+      setIsVisible(false);
+    }
+  };
+
   return (
     <>
-      {/* Hover indicator - thin line at top */}
+      {/* Minimal indicator - closer dots, line grows from center */}
       <div 
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent z-[299] rounded-full"
-        onMouseEnter={() => setIsVisible(true)}
-      ></div>
+        className="fixed top-1.5 left-1/2 -translate-x-1/2 z-[299]"
+        onMouseEnter={handleMouseEnter}
+      >
+        {/* Clickable indicator */}
+        <button
+          onClick={toggleLock}
+          className="group relative p-1.5"
+          aria-label="Toggle navigation"
+        >
+          <div className="relative w-5 h-1 flex items-center justify-center">
+            {/* Left dot */}
+            <span className={`absolute block bg-emerald-400 rounded-full shadow-[0_0_6px_rgba(52,211,153,0.6)] group-hover:bg-emerald-300 group-hover:shadow-[0_0_8px_rgba(52,211,153,0.8)] transition-all duration-500 ease-in-out -left-2 ${
+              isLocked ? 'opacity-0 scale-0' : 'w-1 h-1 opacity-100'
+            }`}></span>
+            
+            {/* Center connecting line - grows from center */}
+            <span className={`absolute block bg-emerald-400 rounded-full shadow-[0_0_6px_rgba(52,211,153,0.6)] group-hover:bg-emerald-300 group-hover:shadow-[0_0_8px_rgba(52,211,153,0.8)] transition-all duration-500 ease-in-out left-1/2 -translate-x-1/2 ${
+              isLocked 
+                ? 'w-5 h-0.5' 
+                : 'w-1 h-1'
+            }`}></span>
+            
+            {/* Right dot */}
+            <span className={`absolute block bg-emerald-400 rounded-full shadow-[0_0_6px_rgba(52,211,153,0.6)] group-hover:bg-emerald-300 group-hover:shadow-[0_0_8px_rgba(52,211,153,0.8)] transition-all duration-500 ease-in-out -right-2 ${
+              isLocked ? 'opacity-0 scale-0' : 'w-1 h-1 opacity-100'
+            }`}></span>
+          </div>
+          
+          {/* Subtle glow effect */}
+          <div className="absolute inset-0 bg-emerald-400/20 blur-md rounded-full scale-150 group-hover:bg-emerald-400/30 transition-all"></div>
+        </button>
+      </div>
 
       {/* Main navbar */}
       <nav 
         className={`fixed left-1/2 -translate-x-1/2 z-[300] transition-all duration-500 ease-out ${
-          isVisible ? 'top-4 opacity-100' : '-top-20 opacity-0'
+          isVisible || isLocked ? 'top-10 opacity-100' : '-top-20 opacity-0'
         }`}
-        onMouseEnter={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {/* Main navbar container */}
         <div className="relative">
