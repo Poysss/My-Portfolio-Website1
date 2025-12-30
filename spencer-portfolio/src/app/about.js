@@ -3,31 +3,11 @@
 import './about.css';
 
 export default function About() {
-  const epicPrinciples = [
-    {
-      letter: 'E',
-      title: 'Execute',
-      subtitle: 'with purpose',
-      description: 'Every line of code serves a purpose, every feature solves a problem.'
-    },
-    {
-      letter: 'P',
-      title: 'Progress',
-      subtitle: 'over perfection',
-      description: 'Ship fast, iterate faster. Real progress beats perfect plans.'
-    },
-    {
-      letter: 'I',
-      title: 'Iterate',
-      subtitle: 'through learning',
-      description: 'Every project teaches something new. Growth happens in the doing.'
-    },
-    {
-      letter: 'C',
-      title: 'Create',
-      subtitle: 'with impact',
-      description: 'Build solutions that matter. Code that makes a real difference.'
-    }
+  const interests = [
+    'Game Development',
+    'Mobile Development', 
+    'Web Development',
+    'UI/UX Design'
   ];
 
   return (
@@ -43,54 +23,71 @@ export default function About() {
       <div className="about-container">
         {/* Header */}
         <div className="about-header">
+          <p className="about-subtitle">GET TO KNOW ME</p>
           <h2 className="about-title">About Me</h2>
-          <div className="about-divider"></div>
         </div>
 
-        {/* Main Content */}
-        <div className="about-content">
-          {/* Left Side - Introduction */}
-          <div className="about-intro">
-            <div className="about-card">
-              <p className="about-intro-text">
-                I'm a full-stack developer with an <span className="about-highlight">EPIC</span> approach to building the web.
-              </p>
+        {/* Main Content Grid */}
+        <div className="about-main-grid">
+          {/* Left Card - Profile */}
+          <div className="about-profile-card">
+            <div className="profile-card-content">
+              <div className="profile-text-section">
+                <h3 className="profile-name">Spencer Z. Nacario</h3>
+                <p className="profile-description-text">
+                  Full-stack developer focused on building clean, scalable, and user-friendly web applications. 
+                  Currently broadening skills in backend and frontend design.
+                </p>
+              </div>
+              
+              <div className="profile-image-container">
+                <div className="profile-image-glow"></div>
+                <img
+                  src="/logo-spencer.png"
+                  alt="Spencer Z. Nacario"
+                  className="profile-image-about"
+                />
+              </div>
             </div>
 
-            <div className="about-card">
-              <p className="about-description">
-                I specialize in building scalable and reliable user-friendly applications from front to back, with hands-on experience in <span className="about-tech">React</span>, <span className="about-tech">Next.js</span>, and <span className="about-tech">Django</span>.
-              </p>
-              <p className="about-description">
-                I enjoy turning ideas into functional digital experiences—sometimes through careful planning, sometimes through trial and error, but always with intention. Curious by nature and detail-driven by habit, I thrive on collaborating with teams, learning fast, and delivering work that actually makes a difference.
-              </p>
+            {/* Interests */}
+            <div className="interests-section">
+              <h4 className="interests-title">INTERESTS</h4>
+              <div className="interests-tags">
+                {interests.map((interest, index) => (
+                  <span key={index} className="interest-tag">
+                    {interest}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Right Side - EPIC Principles */}
-          <div className="about-principles">
-            {epicPrinciples.map((principle, index) => (
-              <div
-                key={principle.letter}
-                className="principle-card"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="principle-content">
-                  <div className="principle-icon-wrapper">
-                    <div className="principle-icon">
-                      <span className="principle-letter">{principle.letter}</span>
-                    </div>
-                  </div>
-                  <div className="principle-text">
-                    <h3 className="principle-title">
-                      {principle.title}
-                      <span className="principle-subtitle">{principle.subtitle}</span>
-                    </h3>
-                    <p className="principle-description">{principle.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Right Side - Info Cards */}
+          <div className="about-info-cards">
+            {/* Who I Am */}
+            <div className="info-card">
+              <h3 className="info-card-title">Who I Am</h3>
+              <p className="info-card-text">
+                I'm a full-stack developer focused on building clean, scalable, and user-friendly web applications.
+              </p>
+            </div>
+
+            {/* What I Do */}
+            <div className="info-card">
+              <h3 className="info-card-title">What I Do</h3>
+              <p className="info-card-text">
+                I work with technologies like <span className="about-tech">React</span>, <span className="about-tech">Next.js</span>, and <span className="about-tech">Django</span>, and I enjoy turning ideas into functional digital experiences through collaboration, continuous learning, and thoughtful execution.
+              </p>
+            </div>
+
+            {/* Beyond Code */}
+            <div className="info-card">
+              <h3 className="info-card-title">Beyond Code</h3>
+              <p className="info-card-text">
+                When I'm not coding, I enjoy reading books, playing video games, and exploring creative projects that help me grow both personally and professionally.
+              </p>
+            </div>
           </div>
         </div>
       </div>

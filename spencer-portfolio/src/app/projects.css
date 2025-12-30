@@ -1,0 +1,442 @@
+.projects-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: black;
+  padding: 2rem;
+}
+
+/* Background Effects */
+.projects-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom left, black, #064e3b, black);
+  opacity: 0.8;
+}
+
+.projects-bg-orbs {
+  position: absolute;
+  inset: 0;
+}
+
+.projects-orb-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 400px;
+  height: 400px;
+  background: rgba(52, 211, 153, 0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.projects-orb-2 {
+  position: absolute;
+  bottom: 20%;
+  right: 20%;
+  width: 350px;
+  height: 350px;
+  background: rgba(52, 211, 153, 0.08);
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: pulse 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Container */
+.projects-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.projects-subtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgb(52, 211, 153);
+  margin-bottom: 0.75rem;
+}
+
+.projects-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.3));
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Navigation Buttons */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: rgb(52, 211, 153);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.carousel-nav:hover {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-left {
+  left: -60px;
+}
+
+.carousel-nav-right {
+  right: -60px;
+}
+
+/* Projects Slider */
+.projects-slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  perspective: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Project Card */
+.project-card {
+  position: absolute;
+  width: 100%;
+  max-width: 700px;
+  height: 450px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: translateX(0) scale(1) translateZ(0);
+  z-index: 10;
+  cursor: default;
+}
+
+.project-card.prev {
+  opacity: 0.4;
+  transform: translateX(-70%) scale(0.75) translateZ(-200px);
+  z-index: 5;
+  filter: blur(2px);
+}
+
+.project-card.next {
+  opacity: 0.4;
+  transform: translateX(70%) scale(0.75) translateZ(-200px);
+  z-index: 5;
+  filter: blur(2px);
+}
+
+.project-card.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card.prev:hover,
+.project-card.next:hover {
+  opacity: 0.6;
+  transform: translateX(-70%) scale(0.8) translateZ(-150px);
+  filter: blur(1px);
+}
+
+.project-card.next:hover {
+  transform: translateX(70%) scale(0.8) translateZ(-150px);
+}
+
+.project-content {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 50px rgba(52, 211, 153, 0.2);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.project-card.active .project-content {
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 60px rgba(52, 211, 153, 0.3);
+}
+
+.project-card.prev .project-content,
+.project-card.next .project-content {
+  pointer-events: none;
+}
+
+/* Project Image */
+.project-image-wrapper {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.project-image-glow {
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 211, 153, 0.1);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+
+.project-card.active .project-image {
+  animation: fadeInScale 0.8s ease-out;
+}
+
+/* Project Info */
+.project-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(52, 211, 153);
+  animation: slideInRight 0.6s ease-out;
+}
+
+.project-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1rem;
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  animation: slideInRight 1s ease-out;
+}
+
+.project-tag {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  border-radius: 9999px;
+  color: rgb(52, 211, 153);
+  font-size: 0.875rem;
+  background: rgba(52, 211, 153, 0.05);
+  transition: all 0.3s ease;
+}
+
+.project-tag:hover {
+  background: rgba(52, 211, 153, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Project Actions */
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  animation: slideInRight 1.2s ease-out;
+}
+
+.btn-project-primary {
+  padding: 0.75rem 1.5rem;
+  background: rgb(52, 211, 153);
+  color: black;
+  font-weight: bold;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+}
+
+.btn-project-primary:hover {
+  background: rgb(16, 185, 129);
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-project-secondary {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: rgb(52, 211, 153);
+  font-weight: bold;
+  border: 2px solid rgb(52, 211, 153);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-project-secondary:hover {
+  background: rgba(52, 211, 153, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Carousel Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(52, 211, 153, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  border-color: rgba(52, 211, 153, 0.6);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: rgb(52, 211, 153);
+  border-color: rgb(52, 211, 153);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
+  transform: scale(1.3);
+}
+
+/* Project Counter - REMOVED */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .carousel-nav-left {
+    left: -40px;
+  }
+  
+  .carousel-nav-right {
+    right: -40px;
+  }
+  
+  .project-content {
+    flex-direction: column;
+  }
+  
+  .project-image-wrapper {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 2.5rem;
+  }
+  
+  .carousel-nav {
+    display: none;
+  }
+  
+  .projects-slider {
+    height: 600px;
+  }
+  
+  .project-title {
+    font-size: 1.5rem;
+  }
+  
+  .project-counter {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

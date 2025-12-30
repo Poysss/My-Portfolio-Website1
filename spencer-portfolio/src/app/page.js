@@ -4,11 +4,12 @@
 import { useState, useEffect } from 'react';
 import Hero from './hero';
 import About from './about';
+import Projects from './projects';
 import ModernNavbar from './navbar';
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
-  const sections = ['hero', 'about', 'works', 'certificates', 'contact'];
+  const sections = ['hero', 'about', 'projects', 'certificates', 'contact'];
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -74,27 +75,10 @@ export default function Home() {
             <About />
           </div>
 
-          {/* My Works Section */}
-          <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
-            <div className="absolute inset-0 bg-gradient-to-bl from-emerald-950 via-black to-emerald-950 opacity-80"></div>
-            <div className="absolute inset-0">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/15 rounded-full blur-[120px] animate-pulse"></div>
-            </div>
-            <div className="relative z-10 text-center">
-              <h2 className="text-5xl font-bold text-emerald-400 drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]">
-                My Works / Projects
-              </h2>
-              <p className="text-emerald-300/70 mt-4">Projects showcase coming soon...</p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="w-32 h-32 border border-emerald-500/40 rounded-lg backdrop-blur-sm shadow-[0_0_30px_rgba(52,211,153,0.2)] hover:shadow-[0_0_50px_rgba(52,211,153,0.4)] transition-all"
-                  ></div>
-                ))}
-              </div>
-            </div>
-          </section>
+          {/* Projects Section */}
+          <div className="h-screen">
+            <Projects />
+          </div>
 
           {/* Certificates Section */}
           <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
