@@ -4,12 +4,14 @@
 import { useState, useEffect } from 'react';
 import Hero from './hero';
 import About from './about';
+import Skills from './skills';
 import Projects from './projects';
+import Certificates from './certificates';
 import ModernNavbar from './navbar';
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
-  const sections = ['hero', 'about', 'projects', 'certificates', 'contact'];
+  const sections = ['hero', 'about', 'skills', 'projects', 'certificates', 'contact'];
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -75,32 +77,20 @@ export default function Home() {
             <About />
           </div>
 
+          {/* Skills Section */}
+          <div className="h-screen">
+            <Skills />
+          </div>
+
           {/* Projects Section */}
           <div className="h-screen">
             <Projects />
           </div>
 
           {/* Certificates Section */}
-          <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
-            <div className="absolute inset-0 bg-gradient-to-tr from-black via-emerald-950 to-black opacity-80"></div>
-            <div className="absolute inset-0">
-              <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-[100px] animate-pulse"></div>
-            </div>
-            <div className="relative z-10 text-center">
-              <h2 className="text-5xl font-bold text-emerald-400 drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]">
-                Certificates
-              </h2>
-              <p className="text-emerald-300/70 mt-4">Achievements coming soon...</p>
-              <div className="mt-8 flex gap-6 justify-center">
-                {[1, 2].map((i) => (
-                  <div
-                    key={i}
-                    className="w-48 h-32 border border-emerald-500/40 rounded-lg backdrop-blur-sm shadow-[0_0_30px_rgba(52,211,153,0.2)]"
-                  ></div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <div className="h-screen">
+            <Certificates />
+          </div>
 
           {/* Let's Talk Section */}
           <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">

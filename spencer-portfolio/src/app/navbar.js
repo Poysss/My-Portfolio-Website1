@@ -10,8 +10,9 @@ export default function ModernNavbar({ currentSection, scrollToSection }) {
   const navItems = [
     { name: 'Intro', index: 0 },
     { name: 'About', index: 1 },
-    { name: 'Works', index: 2 },
-    { name: 'Certificates', index: 3 }
+    { name: 'Skills', index: 2 },
+    { name: 'Works', index: 3 },
+    { name: 'Certificates', index: 4 }
   ];
 
   const toggleLock = () => {
@@ -106,7 +107,7 @@ export default function ModernNavbar({ currentSection, scrollToSection }) {
 
               {/* CTA Button */}
               <button
-                onClick={() => scrollToSection(4)}
+                onClick={() => scrollToSection(5)}
                 className="px-5 py-1.5 rounded-full bg-emerald-400 text-black font-bold text-sm hover:bg-emerald-300 transition-all duration-300 shadow-[0_0_20px_rgba(52,211,153,0.4)] hover:shadow-[0_0_30px_rgba(52,211,153,0.6)] hover:scale-105"
               >
                 Let's Talk

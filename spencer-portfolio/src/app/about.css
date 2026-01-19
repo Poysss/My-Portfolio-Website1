@@ -4,48 +4,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-  background: black;
   padding: 2rem;
 }
 
-/* Background Effects */
-.about-bg-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top right, black, #064e3b, black);
-  opacity: 0.8;
-}
-
-.about-bg-orbs {
-  position: absolute;
-  inset: 0;
-}
-
-.about-orb-1 {
-  position: absolute;
-  top: 33.333333%;
-  right: 33.333333%;
-  width: 320px;
-  height: 320px;
-  background: rgba(52, 211, 153, 0.1);
-  border-radius: 50%;
-  filter: blur(80px);
-  animation: pulse 3s ease-in-out infinite;
-}
-
-.about-orb-2 {
-  position: absolute;
-  bottom: 25%;
-  left: 25%;
-  width: 384px;
-  height: 384px;
-  background: rgba(52, 211, 153, 0.05);
-  border-radius: 50%;
-  filter: blur(100px);
-  animation: pulse 3s ease-in-out infinite;
-  animation-delay: 1s;
-}
 
 /* Container */
 .about-container {

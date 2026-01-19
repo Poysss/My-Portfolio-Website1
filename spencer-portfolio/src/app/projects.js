@@ -76,25 +76,7 @@ export default function Projects() {
         {/* Carousel Container */}
         <div className="carousel-wrapper">
           {/* Navigation Buttons */}
-          <button 
-            onClick={prevProject} 
-            className="carousel-nav carousel-nav-left"
-            aria-label="Previous project"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
 
-          <button 
-            onClick={nextProject} 
-            className="carousel-nav carousel-nav-right"
-            aria-label="Next project"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
 
           {/* Projects Slider */}
           <div className="projects-slider">

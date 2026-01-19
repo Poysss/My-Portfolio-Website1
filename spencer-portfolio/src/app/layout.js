@@ -22,6 +22,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="orb orb-1"></div>
+        <div className="orb orb-2"></div>
         {children}
       </body>
     </html>
