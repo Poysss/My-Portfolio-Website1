@@ -65,6 +65,19 @@ const Certificates = () => {
     setCurrentPage(pageIndex);
   };
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedCert, setSelectedCert] = useState(null);
+
+  const openModal = (cert) => {
+    setSelectedCert(cert);
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+    setSelectedCert(null);
+  };
+  
   const displayedCertificates = certificates.slice(
     currentPage * certificatesPerPage,
     (currentPage + 1) * certificatesPerPage
@@ -90,7 +103,7 @@ const Certificates = () => {
         </div>
         <div className="certificates-grid">
           {displayedCertificates.map((cert, index) => (
-            <div key={index} className="certificate-card">
+            <div key={index} className="certificate-card" onClick={() => openModal(cert)}>
               <Image
                 src={cert.src}
                 alt={cert.alt}
@@ -120,6 +133,20 @@ const Certificates = () => {
           ))}
         </div>
       </div>
+      {modalVisible && selectedCert && (
+        <div className="certificate-modal-overlay" onClick={closeModal}>
+          <div className="certificate-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="certificate-modal-close" onClick={closeModal}>&times;</button>
+            <Image
+              src={selectedCert.src}
+              alt={selectedCert.alt}
+              width={selectedCert.width * 2} // Display image larger in modal
+              height={selectedCert.height * 2}
+              className="certificate-modal-image"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
