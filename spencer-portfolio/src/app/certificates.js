@@ -70,6 +70,10 @@ const Certificates = () => {
     (currentPage + 1) * certificatesPerPage
   );
 
+  // Calculate how many "Coming Soon" placeholders we need
+  const remainingSlots = certificatesPerPage - displayedCertificates.length;
+  const comingSoonSlots = Array(remainingSlots).fill(null);
+
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNextPage(),
     onSwipedRight: () => handlePrevPage(),
@@ -94,6 +98,14 @@ const Certificates = () => {
                 height={cert.height}
                 className="certificate-image"
               />
+            </div>
+          ))}
+          {comingSoonSlots.map((_, index) => (
+            <div key={`coming-soon-${index}`} className="certificate-card coming-soon">
+              <div className="coming-soon-content">
+                <span className="coming-soon-icon">📜</span>
+                <span className="coming-soon-text">COMING SOON</span>
+              </div>
             </div>
           ))}
         </div>

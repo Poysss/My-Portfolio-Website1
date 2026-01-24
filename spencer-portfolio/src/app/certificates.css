@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 4rem 0; /* Adjusted vertical padding, removed horizontal */
+  padding: 4rem 0;
   overflow: hidden;
   width: 100vw;
   box-sizing: border-box;
@@ -16,13 +16,17 @@
   margin: 0 auto;
   position: relative;
   z-index: 10;
-  padding: 0; /* Removed padding from container */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .certificates-header {
   text-align: center;
   margin-bottom: 3rem;
   animation: fadeInDown 0.8s ease-out;
+  width: 100%;
 }
 
 .certificates-title {
@@ -44,10 +48,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem; /* Use gap for spacing */
+  gap: 0.5rem;
   max-width: 920px;
   margin: 0 auto;
   padding: 0 1rem;
+  min-height: 420px;
+  align-content: flex-start;
 }
 
 .certificate-card {
@@ -62,7 +68,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1 calc(33.333% - 1rem); /* Flex properties for 3 columns */
+  flex: 1 1 calc(33.333% - 1rem);
 }
 
 .certificate-card:hover {
@@ -71,11 +77,43 @@
   border-color: rgba(52, 211, 153, 0.4);
 }
 
+.certificate-card.coming-soon {
+  border-style: dashed;
+  border-color: rgba(52, 211, 153, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+.certificate-card.coming-soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
 .certificate-image {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: contain;
+}
+
+.coming-soon-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(52, 211, 153, 0.5);
+}
+
+.coming-soon-icon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.coming-soon-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
 }
 
 .pagination-dots {
@@ -114,20 +152,20 @@
 
 @media (max-width: 1024px) {
   .certificates-grid {
-    max-width: 620px; /* Max-width for 2 cards + gaps */
+    max-width: 620px;
   }
   .certificate-card {
-    flex-basis: calc(50% - 0.5rem); /* 2 columns */
+    flex-basis: calc(50% - 0.5rem);
     height: 180px;
   }
 }
 
 @media (max-width: 768px) {
   .certificates-grid {
-    max-width: 320px; /* Max-width for 1 card */
+    max-width: 320px;
   }
   .certificate-card {
-    flex-basis: 100%; /* 1 column */
+    flex-basis: 100%;
     height: 160px;
   }
 }
