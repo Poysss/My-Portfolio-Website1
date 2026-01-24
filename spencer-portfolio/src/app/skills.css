@@ -8,24 +8,6 @@
   overflow: hidden;
 }
 
-.skills-container {
-  max-width: 960px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
-  text-align: center;
-}
-
-.skills-box {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(52, 211, 153, 0.2);
-  border-radius: 1rem;
-  padding: 2rem;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 50px rgba(52, 211, 153, 0.1);
-}
-
 .skills-header {
   margin-bottom: 2rem; /* Reduced margin */
   animation: fadeInDown 0.8s ease-out;
@@ -43,7 +25,7 @@
   font-size: 2.5rem; /* Reduced font size */
   font-weight: bold;
   color: white;
-  filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.3));
+  filter: drop_shadow(0 0 20px rgba(52, 211, 153, 0.3));
 }
 
 .skills-nav {
@@ -82,19 +64,20 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Auto-fit columns with a smaller minmax */
-  gap: 1rem; /* Adjusted gap */
-  margin-top: 1rem; /* Reduced margin */
+  grid-template-columns: repeat(3, 1fr); /* Changed to 3 items per row */
+  gap: 1.5rem; /* Adjusted gap */
+  margin-top: 1.5rem; /* Adjusted margin */
   justify-content: center;
 }
 
 .skill-card {
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  border: 2px solid rgba(52, 211, 153, 0.5); /* Thicker, more opaque border */
   border-radius: 0.75rem;
-  padding: 1rem; /* Adjusted padding */
-  width: 100px; /* Reduced width */
-  height: 100px; /* Reduced height */
+  padding: 1rem;
+  width: auto; /* Allow width to be determined by grid */
+  max-width: 100px; /* Reduced max-width for smaller cards */
+  height: 90px; /* Reduced height for smaller cards */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,12 +89,12 @@
 .skill-card:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 0 40px rgba(52, 211, 153, 0.2);
-  border-color: rgba(52, 211, 153, 0.5);
+  /* border-color removed to keep it fixed */
 }
 
 .skill-icon {
-  width: 40px; /* Reduced icon size */
-  height: 40px; /* Reduced icon size */
+  width: 30px; /* Reduced icon size */
+  height: 30px; /* Reduced icon size */
   margin-bottom: 0.75rem; /* Adjusted margin */
   transition: transform 0.3s ease;
 }
@@ -121,7 +104,7 @@
 }
 
 .skill-name {
-  font-size: 0.75rem; /* Reduced font size */
+  font-size: 0.65rem; /* Reduced font size */
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
 }
