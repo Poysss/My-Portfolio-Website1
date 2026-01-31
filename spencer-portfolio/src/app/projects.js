@@ -27,20 +27,6 @@ export default function Projects() {
       description: "Intelligent chatbot powered by machine learning, capable of natural language processing and contextual conversations.",
       tags: ["Python", "TensorFlow", "React", "FastAPI"],
       image: "https://via.placeholder.com/800x500/0a0a0a/34D399?text=AI+Chat+Assistant"
-    },
-    {
-      id: 4,
-      title: "Portfolio Analytics",
-      description: "Real-time analytics dashboard for tracking portfolio performance with interactive charts and data visualization.",
-      tags: ["Vue.js", "D3.js", "Express", "PostgreSQL"],
-      image: "https://via.placeholder.com/800x500/0a0a0a/34D399?text=Portfolio+Analytics"
-    },
-    {
-      id: 5,
-      title: "Social Media Hub",
-      description: "Unified social media management platform for scheduling posts, analytics tracking, and audience engagement.",
-      tags: ["Django", "React", "Redis", "Celery"],
-      image: "https://via.placeholder.com/800x500/0a0a0a/34D399?text=Social+Media+Hub"
     }
   ];
 
@@ -58,13 +44,6 @@ export default function Projects() {
 
   return (
     <section className="projects-section">
-      {/* Background Effects */}
-      <div className="projects-bg-gradient"></div>
-      <div className="projects-bg-orbs">
-        <div className="projects-orb-1"></div>
-        <div className="projects-orb-2"></div>
-      </div>
-
       {/* Content */}
       <div className="projects-container">
         {/* Header */}
@@ -75,9 +54,6 @@ export default function Projects() {
 
         {/* Carousel Container */}
         <div className="carousel-wrapper">
-          {/* Navigation Buttons */}
-
-
           {/* Projects Slider */}
           <div className="projects-slider">
             {projects.map((project, index) => {

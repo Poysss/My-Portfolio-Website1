@@ -7,6 +7,7 @@ import About from './about';
 import Skills from './skills';
 import Projects from './projects';
 import Certificates from './certificates';
+import Contact from './contact';
 import ModernNavbar from './navbar';
 
 export default function Home() {
@@ -93,21 +94,9 @@ export default function Home() {
           </div>
 
           {/* Let's Talk Section */}
-          <section className="h-screen flex items-center justify-center relative overflow-hidden bg-black">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-950 via-black to-emerald-950 opacity-80"></div>
-            <div className="absolute inset-0">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-400/10 rounded-full blur-[150px] animate-pulse"></div>
-            </div>
-            <div className="relative z-10 text-center">
-              <h2 className="text-5xl font-bold text-emerald-400 drop-shadow-[0_0_20px_rgba(52,211,153,0.5)] mb-4">
-                Let's Talk
-              </h2>
-              <p className="text-emerald-300/70 mb-8">Get in touch with me</p>
-              <div className="border border-emerald-500/40 rounded-lg p-8 backdrop-blur-sm shadow-[0_0_50px_rgba(52,211,153,0.3)]">
-                <p className="text-emerald-300/60">Contact form coming soon...</p>
-              </div>
-            </div>
-          </section>
+          <div className="h-screen">
+            <Contact />
+          </div>
         </div>
 
         {/* Dot Navigation */}

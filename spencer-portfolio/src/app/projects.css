@@ -5,8 +5,8 @@
   justify-content: center;
   position: relative;
   padding: 2rem;
+  padding-top: 5rem;
 }
-
 
 /* Container */
 .projects-container {
@@ -20,7 +20,7 @@
 /* Header */
 .projects-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   animation: fadeInDown 0.8s ease-out;
 }
 
@@ -43,7 +43,7 @@
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
@@ -71,7 +71,7 @@
 .projects-slider {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 450px;
   perspective: 1500px;
   display: flex;
   align-items: center;
@@ -82,8 +82,8 @@
 .project-card {
   position: absolute;
   width: 100%;
-  max-width: 700px;
-  height: 450px;
+  max-width: 650px;
+  height: 400px;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
@@ -132,12 +132,12 @@
   height: 100%;
   border: 1px solid rgba(52, 211, 153, 0.3);
   border-radius: 1.5rem;
-  padding: 2rem;
+  padding: 1.75rem;
   backdrop-filter: blur(12px);
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 50px rgba(52, 211, 153, 0.2);
   display: flex;
-  gap: 2rem;
+  gap: 1.75rem;
   align-items: center;
   transition: all 0.3s ease;
 }
@@ -188,11 +188,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .project-title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: bold;
   color: rgb(52, 211, 153);
   animation: slideInRight 0.6s ease-out;
@@ -200,8 +200,8 @@
 
 .project-description {
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
   animation: slideInRight 0.8s ease-out;
 }
 
@@ -214,11 +214,11 @@
 }
 
 .project-tag {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.9rem;
   border: 1px solid rgba(52, 211, 153, 0.4);
   border-radius: 9999px;
   color: rgb(52, 211, 153);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   background: rgba(52, 211, 153, 0.05);
   transition: all 0.3s ease;
 }
@@ -231,12 +231,12 @@
 /* Project Actions */
 .project-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   animation: slideInRight 1.2s ease-out;
 }
 
 .btn-project-primary {
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.25rem;
   background: rgb(52, 211, 153);
   color: black;
   font-weight: bold;
@@ -245,6 +245,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+  font-size: 0.9rem;
 }
 
 .btn-project-primary:hover {
@@ -254,7 +255,7 @@
 }
 
 .btn-project-secondary {
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.25rem;
   background: transparent;
   color: rgb(52, 211, 153);
   font-weight: bold;
@@ -262,6 +263,7 @@
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .btn-project-secondary:hover {
@@ -299,8 +301,6 @@
   transform: scale(1.3);
 }
 
-/* Project Counter - REMOVED */
-
 /* Responsive Design */
 @media (max-width: 1024px) {
   .carousel-nav-left {
@@ -317,11 +317,15 @@
   
   .project-image-wrapper {
     width: 100%;
-    height: 250px;
+    height: 200px;
   }
 }
 
 @media (max-width: 768px) {
+  .projects-section {
+    padding-top: 3rem;
+  }
+
   .projects-title {
     font-size: 2.5rem;
   }
@@ -331,7 +335,7 @@
   }
   
   .projects-slider {
-    height: 600px;
+    height: 550px;
   }
   
   .project-title {
@@ -341,6 +345,12 @@
   .project-counter {
     bottom: 1rem;
     right: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-title {
+    font-size: 3.5rem;
   }
 }
 

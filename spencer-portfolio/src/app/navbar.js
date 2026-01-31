@@ -1,4 +1,4 @@
-// src/app/navbar.js
+// src/app/navbar.jsx
 'use client';
 
 import { useState } from 'react';
