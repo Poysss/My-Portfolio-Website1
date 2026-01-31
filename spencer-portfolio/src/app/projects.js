@@ -9,24 +9,29 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with real-time inventory management, secure payment processing, and admin dashboard.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://via.placeholder.com/800x500/0a0a0a/34D399?text=E-Commerce+Platform"
+      title: "Wildlitz",
+      description: "Grade 3 learning platform with interactive educational activities. Full-stack development for assigned modules to enhance student engagement.",
+      tags: ["React", "CSS", "Django"],
+      image: "/projects/wildlitz.png",
+      projectLink: "https://wildlitz-capstone-raeg.onrender.com/",
+      codeLink: "https://github.com/Nokitaki/WildLitz-Capstone"
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, team collaboration features, and progress tracking.",
-      tags: ["Next.js", "Firebase", "Tailwind CSS"],
-      image: "https://via.placeholder.com/800x500/0a0a0a/34D399?text=Task+Management+App"
+      title: "Chipin",
+      description: "Collaborative expense tracking platform with expense input system, participant management, and automated cost-splitting calculations. Clean, user-friendly interface for group events.",
+      tags: ["React", "CSS", "Java", "Kotlin"],
+      image: "/projects/chipin.jpg",
+      projectLink: "https://chip-in-phi.vercel.app/",
+      codeLink: "https://github.com/Jeskunnn/ChipIn"
     },
     {
       id: 3,
-      title: "AI Chat Assistant",
-      description: "Intelligent chatbot powered by machine learning, capable of natural language processing and contextual conversations.",
-      tags: ["Python", "TensorFlow", "React", "FastAPI"],
-      image: "https://via.placeholder.com/800x500/0a0a0a/34D399?text=AI+Chat+Assistant"
+      title: "Identity: Fragments of Me",
+      description: "Turn-based 2D game developed for GDAP gamified event. Created visual assets and contributed to main concept using Godot IDE.",
+      tags: ["GDScript"],
+      image: "/projects/identity.jpg",
+      codeLink: "https://github.com/danrave1234/Godot-Project"
     }
   ];
 
@@ -98,12 +103,28 @@ export default function Projects() {
 
                       {/* Action Buttons */}
                       <div className="project-actions">
-                        <button className="btn-project-primary">
-                          View Project
-                        </button>
-                        <button className="btn-project-secondary">
-                          View Code
-                        </button>
+                        {project.projectLink && (
+                          <a 
+                            href={project.projectLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-project-primary"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            View Project
+                          </a>
+                        )}
+                        {project.codeLink && (
+                          <a 
+                            href={project.codeLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-project-secondary"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            View Code
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
