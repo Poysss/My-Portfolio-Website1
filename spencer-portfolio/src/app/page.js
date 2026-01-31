@@ -16,6 +16,12 @@ export default function Home() {
 
   useEffect(() => {
     const handleWheel = (e) => {
+      // Allow Ctrl+Scroll for zooming
+      if (e.ctrlKey || e.metaKey) {
+        return; // Don't prevent default when Ctrl/Cmd is pressed
+      }
+      
+      // Only prevent default for section navigation
       e.preventDefault();
       if (e.deltaY > 0 && currentSection < sections.length - 1) {
         setCurrentSection(currentSection + 1);
@@ -70,7 +76,7 @@ export default function Home() {
         >
           {/* Hero Section */}
           <div className="h-screen">
-            <Hero />
+            <Hero scrollToSection={scrollToSection} />
           </div>
 
           {/* About Me Section */}

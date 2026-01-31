@@ -4,7 +4,7 @@
 import { useEffect } from 'react';
 import './hero.css';
 
-export default function Hero() {
+export default function Hero({ scrollToSection }) {
   useEffect(() => {
     // Check if particles.js is already loaded
     if (window.particlesJS && document.getElementById('particles-js')) {
@@ -202,6 +202,18 @@ export default function Hero() {
     };
   }, []);
 
+  const handleViewWorks = () => {
+    if (scrollToSection) {
+      scrollToSection(3); // Index 3 is the Projects section
+    }
+  };
+
+  const handleGetInTouch = () => {
+    if (scrollToSection) {
+      scrollToSection(5); // Index 5 is the Contact section
+    }
+  };
+
   return (
     <section className="hero-section snap-start h-screen flex items-center justify-center relative overflow-hidden">
       <div 
@@ -241,10 +253,10 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 hero-buttons" style={{ pointerEvents: 'auto' }}>
-              <button className="btn-primary">
+              <button className="btn-primary" onClick={handleViewWorks}>
                 View My Works
               </button>
-              <button className="btn-secondary">
+              <button className="btn-secondary" onClick={handleGetInTouch}>
                 Get In Touch<span className="text-emerald-400">.</span>
               </button>
             </div>
